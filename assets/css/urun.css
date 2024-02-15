@@ -1,0 +1,283 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Kumbh Sans", sans-serif;
+    font-style: normal;
+    font-variation-settings:
+      "YOPQ" 300;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+
+.container {
+    width: 1440px;
+    margin: 0 auto;
+}
+
+.mainPlace {
+    width: 1110px;
+    margin: 28px 165px 132px 165px;
+}
+
+/* header css */
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.headerLeftSide{
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    & > img {
+        width: 137.5px;
+        height: 20px;
+    }
+}
+.headerListe {
+    display: flex;
+    gap: 32px;
+}
+.headerRightSide{
+    display: flex;
+    gap: 46px;
+    align-items: center;
+}
+.sepet{
+
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+hr{
+    opacity: 40%;
+    margin-top: 32px;
+}
+
+/* urun Alani */
+/* left */
+.urunAlani {
+    margin: 0 auto;
+    margin-top: 90px;
+    width: 1015px;
+    display: flex;
+    gap: 125px;
+}
+.fotografAlani{
+    width: 445px;
+}
+.buyukResim{
+    width: 445px;
+    height: 445px;
+    margin-bottom: 32px;
+    border: 2px;
+    object-fit:contain;
+}
+.urunFotolari {
+    display: flex;
+    gap: 31px;
+    /* width: 88px; */
+    height:100px;
+    border: 2px;
+    overflow: auto;
+}
+/* right */
+.urunBilgisiAlani{
+    margin-top: 62px;
+}
+.companyName {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 2px;   
+    color: #FF7E1B;
+}
+.type {
+    margin-top: 27px;
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0px;
+    color: #1D2026;
+}
+.desc {
+    margin-top: 32px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    color: #69707D;
+}
+.indirim-yuzde {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 28px;
+}
+.indirimliFiyat {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 35px;
+    color: #1D2026;
+}
+.yuzde {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #FF7E1B;
+    background: #FFEEE2;
+    border-radius: 5px;
+    padding: 7px 8px 4px 8px;
+}
+.indirimsizFiyat {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 26px;
+    color: #B6BCC8;
+    margin-top: 10px;
+}
+.adet-ekleBtn {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+.urunAdet {
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    width: 157px;
+    height: 56px;
+    background: #F6F8FD;
+    border-radius: 8px;
+    & > a {
+        align-items: center;
+    }
+}
+
+.addToChartBtn {
+    width: 272px;
+    height: 56px;
+    box-shadow: 0px 20px 50px -20px #FF7E1B;
+    background: #FF7E1B; 
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #fff;
+    & > img {
+        margin-right: 15px;
+    }
+}
+.addToChartBtn:hover {
+    box-shadow: 0px 20px 50px -20px #FFAB6A;
+    background: #FFAB6A;
+}
+
+.containerUrun {
+    width: 1440px;
+    margin: 0 auto;
+}
+.urunler {
+    width: 1110px;
+    margin: 28px 165px 132px 165px;
+}
+.urunListe {
+    width:100%;
+    margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+.urunDiv {
+    width: 28%;
+    border: 1px solid;
+    border-radius: 20px;
+    cursor: pointer;
+    & > img {    
+        border-radius: 20px;
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+    }
+}
+.urunBilgi {
+    padding: 20px;
+    text-align: center;
+}
+.fiyat {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.alisverisOnay {
+    margin: 0 auto;
+    margin-top: 250px;
+    width: 400px;
+    height: 200px;
+    padding: 50px;
+    border-radius: 10px;
+    background: #f4f1ef;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    & > button {
+        margin-top: 15px;
+        padding: 10px;
+        background-color:#FFAB6A;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 15px;
+        color: #fff;
+    }
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #f5f4f4;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
