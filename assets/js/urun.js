@@ -97,7 +97,7 @@ async function showItem(){
                     </a>
                 </div>
 
-                <button class="addToChartBtn" ><img src="assets/img/sepetBeyaz.png" alt="sepet">Add to cart</button>
+                <button class="addToChartBtn" data-id="${yeniId}"><img src="assets/img/sepetBeyaz.png" alt="sepet">Add to cart</button>
             </div>
 
         </div>`;
@@ -113,8 +113,11 @@ async function showItem(){
         bindEventsAll(".images", "click", chooseBigPhoto)
         adetArttir(product.stock);
         adetAzalt();
-        handleAddBtn(yeniId);
+        handleAddBtn(yeniId, product.price, product.images[0]);
         handleDialog();
+        sepetBar(yeniId);
+        sepetBarClose();
+        
 
 }
 function chooseBigPhoto(){
@@ -145,25 +148,49 @@ function adetArttir(stock){
         UrunAdet.innerHTML = adet;
     })
 }
-function handleAddBtn(yeniId){
+let sayac =0;
+function handleAddBtn(yeniId, fiyat, imgSrc){
+    sayac = 0;
     const urunSepetBilgi = qs(".urunSepetBilgi");
     const addToChartBtn = qs(".addToChartBtn");
     addToChartBtn.addEventListener("click", function(e){
-        e.preventDefault();
+        e.preventDefault(); 
         dialog.showModal();
-        urunSepetBilgi.innerHTML += `<li ${yeniId}>X<span>${adet}</span></li>`;
-        const obje = yeniId
-        
-        for (const sepet of localAdet) {
-            if (yeniId.urunid == sepet) {
-                break;
+
+        if (this.classList.contains("eklendi")) {
+            for (const sepet of localAdet) {
+                if (sepet.id === yeniId) {
+                    sepet.adet += adet;
+                    localAdet.push();
+                    localStorage.setItem("adet", JSON.stringify(localAdet)); 
+                }   
             }
-            else{
-                saveToLocalAdet(obje);
+        }else {
+            const obje = {
+                "id":yeniId,
+                "adet": adet,
+                "fiyat": fiyat,
+                "image": imgSrc
             }
+
+            saveToLocalAdet(obje);
+            // sepetLocalSil();
         }
+        
+
+        urunSepetBilgi.innerHTML = "";
+        for (const sepet of localAdet) {
+            urunSepetBilgi.innerHTML += `<li class="sepetListe" data-id="${yeniId}">
+                                            <img src="${sepet.image}" alt="urun">
+                                            X<span>${sepet.adet}</span>
+                                            <span>${sepet.adet*sepet.fiyat}</span>
+                                        </li>`;
+        }
+
+        this.classList.add("eklendi");
     })
 }
+
 
 function handleDialog(){
     const alisverisOnayBtn = qs(".alisverisOnay button");
@@ -177,12 +204,22 @@ const sepet = qs(".sepet");
 const sidenav = qs(".sidenav");
 const container = qs(".container");
 
-function sepetBar(){
-   
+function sepetBar(yeniId){
+    const urunSepetBilgi = qs(".urunSepetBilgi");
     sepet.addEventListener("click", function(e){
         e.preventDefault();
         sidenav.style.width = "250px";
         container.style.marginRight = "300px";
+        urunSepetBilgi.innerHTML = "";
+        for (const sepet of localAdet) {
+            urunSepetBilgi.innerHTML += `<li class="sepetListe" data-id="${yeniId}">
+                                            <img src="${sepet.image}" alt="urun">
+                                            X<span>${sepet.adet}</span>
+                                            <span>${sepet.adet*sepet.fiyat}</span>
+                                        </li>`;
+        }
+
+
     })
 }
 
@@ -195,7 +232,22 @@ function sepetBarClose(){
     })
 }
 
+function sepetLocalSil(){
+    for (let i = 0; i < localAdet.length; i++) {
+        for (let j = 0; j < localAdet.length; j++) {
+            if (localAdet[i].id == localAdet[j].id) {
+                localAdet[j].adet += localAdet[i].adet;
+                
+                localAdet.slice(i,1);
+                localAdet.push();
+                localStorage.setItem("adet", JSON.stringify(localAdet));
+                break;
+            }
+            
+        }
+    }
+}
 
 showItem();
-sepetBar();
-sepetBarClose();
+// sepetBar();
+// sepetBarClose();

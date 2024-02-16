@@ -70,7 +70,6 @@ async function showItems(){
     const urunDivs = qsAll(".urunDiv");
     for (const urunDiv of urunDivs) {
         urunDiv.addEventListener("click", function(){
-            
             clikedProduct = Number(this.dataset.urunid);
             console.log(clikedProduct);
             saveToLocalStorage({
