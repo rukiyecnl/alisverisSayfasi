@@ -14,7 +14,7 @@
                 <div class="headerLeftSide">
                     <a href="products.html"><img src="assets/img/logo.png" alt="logo"></a>
                     <ul class="headerListe">
-                        <li><a href="#">Collections</a></li>
+                        <li><a href="productTable.html">ADMIN</a></li>
                         <li><a href="#">Men</a></li>
                         <li><a href="#">Women</a></li>
                         <li><a href="#">About</a></li>
@@ -28,12 +28,29 @@
             </header>
             <hr>
             <form id="addProduct">
-                <input type="text" name="title">
+                <div>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" required> 
+                </div>
+                
+                <div>
+                    <label for="company">Company</label>
+                    <input type="text" name="company" required>                    
+                </div>
+
+                <div>
+                    <label for="price">Price</label>
+                    <input type="text" name="price" required>                    
+                </div>
+
+
                 <button>Ekle</button>
             </form>
             <table>
                 <tr>
                     <th>Title</th>
+                    <th>Marka</th>
+                    <th>Fiyat</th>
                     <th>Düzenle</th>
                     <th>Sil</th>
                 </tr>

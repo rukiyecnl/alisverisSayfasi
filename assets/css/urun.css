@@ -381,3 +381,76 @@ hr{
     height: 70px;
     object-fit: cover;
 }
+
+#addProduct {
+    
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    & > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    & > div > label {
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 20px;
+    }
+    & > div > input {
+        border-radius: 8px;
+        padding: 10px;
+        height: 20px;
+    }
+    & > button {
+        width: 150px;
+        height: 30px;
+        align-self: center;
+        background-color: #db9669;
+        color: #eae1db;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 20px;
+    }
+}
+.duzenle, .sil {
+    width: 150px;
+    height: 30px;
+    align-self: center;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;   
+}
+.duzenle {
+    background-color: #d1eeb4;
+    color: #ab917e;   
+}
+.sil {
+    background-color: #eb8563;
+    color: #eae1db;    
+}
+table {
+    margin: 0 auto;
+}
+td{
+    padding: 10px;
+    border-bottom: 2px solid;
+}
+th {
+    padding: 10px;
+    background-color: #FFEEE2;
+    color: #e6af8b;
+    height: 30px;
+    text-align: start;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+}

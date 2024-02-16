@@ -17,6 +17,7 @@ async function getItems(endpoint){
     const items = response.products;
     return items;
 }
+
 async function postItems(endpoints, bodyObj){
     const request = await fetch(`${BASE_url}/${endpoints}`, {
         method: "POST",
@@ -25,6 +26,23 @@ async function postItems(endpoints, bodyObj){
     });
     const items = request.json();
     return items;
+}
+async function putItems(endpoint, bodyObj){
+    const request = await fetch(`${BASE_url}/${endpoint}`, {
+        method:"PUT",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bodyObj)
+    });
+    const item = await request.json();
+    return item;
+}
+
+async function deleteItem(endpoint){
+    const response = await fetch(`${BASE_url}/${endpoint}`, {
+        method: "DELETE",
+    })
+    const deleteItem = response.json();
+    return deleteItem;
 }
 
 function bindEventsAll(selector, eventType, cbFunction){
@@ -44,8 +62,10 @@ async function showItems(){
     for (const product of products) {
 
         table.innerHTML += `
-        <tr data-id=${product.id}>
+        <tr data-id=${product.id} class="satirlar">
               <td>${product.title}</td>
+              <td>${product.brand}</td>
+              <td>${product.price}</td>
               <td><button class="duzenle" data-id=${product.id}>Düzenle</button></td> 
               <td><button class="sil" data-id=${product.id}>Sil</button></td>           
         </tr>
@@ -53,9 +73,38 @@ async function showItems(){
         `;
     }
 
-    // bindEventsAll(".duzenle", "click", editProduct);
-    // bindEventsAll(".sil", "click", deleteProduct);
+    bindEventsAll(".duzenle", "click", editProduct);
+    bindEventsAll(".sil", "click", deleteProduct);
     
+}
+async function deleteProduct(e){
+    const productId = Number(e.target.dataset.id);
+    const deleteitem = await deleteItem(`products/${productId}`);
+    e.target.parentElement.parentElement.remove();
+
+}
+async function editProduct(e){
+    const productId = Number(e.target.dataset.id);
+    const alan = e.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling;
+    alan.innerHTML = `<input type="text" name="alan" class="alan">
+                      <button class="updateBtn">Güncelle</button>`;
+    
+
+    bindUpdateBtn(alan, productId);
+    // bindEvents(".updateBtn", "click", bindUpdateBtn);
+}
+async function bindUpdateBtn(alan, productId){
+    const updateBtn = qs(".updateBtn");
+    const alanInput = qs(".alan");
+    updateBtn.addEventListener("click", async function(e){
+        e.preventDefault();
+        const updateProduct = await putItems(`products/${productId}`, {
+            "title": alanInput.value
+         })
+
+        
+        alan.innerHTML = updateProduct.title;
+    })
 }
 
 function addProduct(){
@@ -78,12 +127,15 @@ async function handleAddBtn(e){
     const formData = new FormData(e.target);
     const formObj = Object.fromEntries(formData);
     const response = await postItems("products/add", {
-        "id": createUniqueId(),
-        "title": formObj.title
+        "title": formObj.title,
+        "brand": formObj.company,
+        "price": formObj.price
     });
     table.innerHTML += `
-    <tr data-id=${response.id}>
+    <tr data-id=${response.id} class="satirlar">
         <td>${response.title}</td>
+        <td>${response.brand}</td>
+        <td>${response.price}</td>
         <td><button class="duzenle" data-id=${response.id}>Düzenle</button></td> 
         <td><button class="sil" data-id=${response.id}>Sil</button></td>           
     </tr>`
