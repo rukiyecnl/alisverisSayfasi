@@ -4,8 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veri Tabanı</title>
+    <link rel="stylesheet" href="assets/css/urun.css">
 </head>
 <body>
+    <div class="containerUrun">
+        
+        <div class="urunler">
+            <header>
+                <div class="headerLeftSide">
+                    <a href="products.html"><img src="assets/img/logo.png" alt="logo"></a>
+                    <ul class="headerListe">
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Men</a></li>
+                        <li><a href="#">Women</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="headerRightSide">
+                    <a href="#" class="logoDiv"><img src="assets/img/sepet.png" alt="sepet" class="sepet"><span class="urunSayisi" style="display: none;"></span></a>
+                    <a href="#"><img src="assets/img/avatar.png" alt="avatar" class="avatar"></a>
+                </div>
+            </header>
+            <hr>
+            <form id="addProduct">
+                <input type="text" name="title">
+                <button>Ekle</button>
+            </form>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Düzenle</th>
+                    <th>Sil</th>
+                </tr>
+                <tbody>
+                    
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+    <script src="assets/js/table.js"></script>
     
 </body>
 </html>
