@@ -2,6 +2,8 @@ const BASE_url = "https://dummyjson.com";
 
 const dialog = qs(".alisverisOnay");
 const urunAlani = qs(".urunAlani");
+const urunSayisi = qs(".urunSayisi");
+
 let clickedProductid;
 let localAdet = [];
 let adet = 0;
@@ -45,6 +47,8 @@ function saveToLocalAdet(object){
     let sepetLocal = localStorageAdetStok();
     sepetLocal.push(object);
     localStorage.setItem("adet", JSON.stringify(sepetLocal));
+    urunSayisi.style.display = "flex";
+    urunSayisi.innerHTML = sepetLocal.length;
 }
 
 async function getSpecificItem(endpoint){
@@ -113,11 +117,10 @@ async function showItem(){
         bindEventsAll(".images", "click", chooseBigPhoto)
         adetArttir(product.stock);
         adetAzalt();
-        handleAddBtn(yeniId, product.price, product.images[0]);
+        handleAddBtn(yeniId, product.price, product.images[0], product.brand, product.title);
         handleDialog();
         sepetBar(yeniId);
         sepetBarClose();
-        
 
 }
 function chooseBigPhoto(){
@@ -149,14 +152,14 @@ function adetArttir(stock){
     })
 }
 let sayac =0;
-function handleAddBtn(yeniId, fiyat, imgSrc){
+function handleAddBtn(yeniId, fiyat, imgSrc, brand, title){
     sayac = 0;
     const urunSepetBilgi = qs(".urunSepetBilgi");
     const addToChartBtn = qs(".addToChartBtn");
     addToChartBtn.addEventListener("click", function(e){
         e.preventDefault(); 
         dialog.showModal();
-
+       
         if (this.classList.contains("eklendi")) {
             for (const sepet of localAdet) {
                 if (sepet.id === yeniId) {
@@ -170,7 +173,9 @@ function handleAddBtn(yeniId, fiyat, imgSrc){
                 "id":yeniId,
                 "adet": adet,
                 "fiyat": fiyat,
-                "image": imgSrc
+                "image": imgSrc,
+                "brand": brand,
+                "title": title
             }
 
             saveToLocalAdet(obje);
@@ -181,9 +186,23 @@ function handleAddBtn(yeniId, fiyat, imgSrc){
         urunSepetBilgi.innerHTML = "";
         for (const sepet of localAdet) {
             urunSepetBilgi.innerHTML += `<li class="sepetListe" data-id="${yeniId}">
-                                            <img src="${sepet.image}" alt="urun">
-                                            X<span>${sepet.adet}</span>
-                                            <span>${sepet.adet*sepet.fiyat}</span>
+                                            <p class="satici">Satıcı: <span>${sepet.brand}</span></p>
+                                            <div class="sepetMain">
+                                                <img src="${sepet.image}" alt="urun" class="sepetFoto">
+                                                <div class="sepetMainFooter">
+                                                    <p>${sepet.title}</p> 
+                                                    <div>                 
+                                                        <div>
+                                                            <p>adet</p>
+                                                            <span>X${sepet.adet}</span>
+                                                        </div>
+                                                        <div>
+                                                            <p>fiyat</p>
+                                                            <span>${sepet.adet*sepet.fiyat}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </li>`;
         }
 
@@ -213,9 +232,24 @@ function sepetBar(yeniId){
         urunSepetBilgi.innerHTML = "";
         for (const sepet of localAdet) {
             urunSepetBilgi.innerHTML += `<li class="sepetListe" data-id="${yeniId}">
-                                            <img src="${sepet.image}" alt="urun">
-                                            X<span>${sepet.adet}</span>
-                                            <span>${sepet.adet*sepet.fiyat}</span>
+                                            <p class="satici">Satıcı: <span>${sepet.brand}</span></p>
+                                            <div class="sepetMain">
+                                                <img src="${sepet.image}" alt="urun" class="sepetFoto">
+                                                <div class="sepetMainFooter">
+                                                    <p>${sepet.title}</p>
+                                                    <div> 
+                                                        <div class="">
+                                                            <p>adet</p>
+                                                            <span>X${sepet.adet}</span>
+                                                        </div>
+                                                        <div>
+                                                            <p>fiyat</p>
+                                                            <span>${sepet.adet*sepet.fiyat}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
                                         </li>`;
         }
 
@@ -247,6 +281,7 @@ function sepetLocalSil(){
         }
     }
 }
+
 
 showItem();
 // sepetBar();

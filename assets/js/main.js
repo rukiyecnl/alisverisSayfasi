@@ -55,7 +55,7 @@ async function showItems(){
 
                 <p class="baslik">${product.title}</p>
                 <p class="urunAciklama">${product.description}</p>
-                <p class="rating">${product.rating}</p>
+                <p class="rating">Rating: ${product.rating}</p>
                 <div class="fiyat">
                     <del class="eskiFiyat">${(product.price*100/(100-product.discountPercentage)).toFixed()}</del>
                     <p class="yeniFiyat">${product.price}</p>

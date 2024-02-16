@@ -53,8 +53,22 @@ header {
     gap: 46px;
     align-items: center;
 }
-.sepet{
-
+.logoDiv{
+    position: relative;
+}
+.urunSayisi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    background-color: #FFAB6A;
+    color: #000;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    padding: 2px;
+   
 }
 .avatar {
     width: 50px;
@@ -202,8 +216,8 @@ hr{
     gap: 30px;
 }
 .urunDiv {
-    width: 28%;
-    border: 1px solid;
+    width: 26%;
+    border: 2px solid #db9669;
     border-radius: 20px;
     cursor: pointer;
     & > img {    
@@ -216,13 +230,41 @@ hr{
 .urunBilgi {
     padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.baslik {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #db9669;
 }
 .fiyat {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
-
+.urunAciklama {
+    font-size: 17px;
+    line-height: 20px;
+    color:#60391f ;
+}
+.fiyat {
+    margin-top: 15px;
+}
+.eskiFiyat {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    color: #818181;
+}
+.yeniFiyat {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 20px;
+    color:rgb(233, 126, 126);  
+}
 .alisverisOnay {
     margin: 0 auto;
     margin-top: 250px;
@@ -255,39 +297,87 @@ hr{
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #f5f4f4;
+    background-color: #FFEEE2;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-  }
-  
-  .sidenav a {
+    /* text-align: center; */
+    & > hr {
+        margin-top: 23px;
+    }
+    & > h2 {
+        text-align: center;
+    }
+}
+
+.sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.3s;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  .sidenav .closebtn {
+    /* text-align: center; */
+}
+
+.sidenav a:hover {
+    color: #db9669;
+}
+
+.sidenav .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
+}
 
-  .sepetListe {
+.urunSepetBilgi {
+    padding: 20px;
     display: flex;
-    gap: 10px;
-    & > img {
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.sepetListe {
+    /* display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column; */
+    /* gap: 15px; */
+    border: 1px solid #b3b2b2;
+    border-radius: 8px;
+    padding: 5px;
+}
+.satici {
+    border-bottom: 1px solid  #b3b2b2;
+    padding: 5px;
+    background-color: #e6d6cc;
+    border-radius: 5px;
+    & > span {
+        font-weight: 700;
     }
-  }
+}
+.sepetMain {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.sepetMainFooter {
+    display: flex;
+    flex-direction: column;
+    & > div {
+        display: flex;
+        gap: 17px;
+    }
+    & > p {
+        color:#db9669 ;
+    }
+}
+.sepetFoto{
+    border-radius: 5px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
