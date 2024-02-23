@@ -49,7 +49,7 @@ async function showItems(){
     for (const product of products) {
 
         urunListe.innerHTML += `
-        <a href="../../products.html" class="urunDiv" data-urunid = "${product.id}">
+        <a href="products.html" class="urunDiv" data-urunid = "${product.id}">
             <img src="${product.images[0]}" alt="anaResim">
             <div class="urunBilgi">
 
