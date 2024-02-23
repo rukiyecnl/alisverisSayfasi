@@ -262,7 +262,7 @@ function sepetBarClose(){
     closebtn.addEventListener("click", function(e){
         e.preventDefault();
         sidenav.style.width = "0px";
-        container.style.marginRight = "0px";
+        container.style.marginLeft = "0px";
     })
 }
 

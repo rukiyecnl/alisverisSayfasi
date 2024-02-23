@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anasayfa</title>
+    <title>Ürün Sayfasi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/urun.css">
 </head>
 <body>
+    
+    <div class="container">
+        <div class="mainPlace">
 
-    <div class="containerUrun">
-        
-        <div class="urunler">
             <header>
                 <div class="headerLeftSide">
-                    <a href="products.html"><img src="assets/img/logo.png" alt="logo"></a>
+                    <a href="index.html"><img src="assets/img/logo.png" alt="logo"></a>
                     <ul class="headerListe">
                         <li><a href="productTable.html">ADMIN</a></li>
                         <li><a href="#">Men</a></li>
@@ -29,36 +32,69 @@
             </header>
             <hr>
             <div id="mySidenav" class="sidenav">
+                <h2>-Sepetim-</h2>
+                <hr>
                 <a href="#" class="closebtn">x</a>
                 <ul class="urunSepetBilgi">
                     
                 </ul>
-            </div>
-            <div class="urunListe">
-                <!-- <div class="urunDiv">
-                    <img src="https://cdn.dummyjson.com/product-images/1/thumbnail.jpg" alt="anaResim">
-                    <div class="urunBilgi">
-                        <p class="baslik">iphone 9</p>
-                        <p class="urunAciklama">An apple mobile which is nothing like apple</p>
-                        <p class="rating">4.69</p>
-                        <div class="fiyat">
-                            <del class="eskiFiyat">600</del>
-                            <p class="yeniFiyat">549</p>
-                        </div>
-                        
+            </div>          
+            <div class="urunAlani">
 
+                <!-- <div class="fotografAlani">
+                    <img class="buyukResim" src="assets/img/buyukResim.png" alt="">
+                    <div class="urunFotolari">
+                        <img src="assets/img/buyukResim.png" alt="foto1">
+                        <img src="assets/img/buyukResim.png" alt="foto2">
+                        <img src="assets/img/buyukResim.png" alt="foto3">
+                        <img src="assets/img/buyukResim.png" alt="foto4">    
                     </div>
-                    
+                </div>
+                <div class="urunBilgisiAlani">
+                    <p class="companyName">PHONE COMPANY</p>
+                    <p class="type">Fall Limited Edition Sneakers</p>
+                    <p class="desc">These low-profile sneakers are your perfect casual wear companion. 
+                                    Featuring a durable rubber outer sole, 
+                                    they’ll withstand everything the weather can offer.
+                    </p>
+                    <div class="indirim-yuzde">
+                        <p class="indirimliFiyat">$<span>125.00</span></p>
+                        <p class="yuzde">50%</p>
+                    </div>
+
+                    <del class="indirimsizFiyat">$<span>250.00</span></del>
+
+                    <div class="adet-ekleBtn">
+
+                        <div class="urunAdet">
+                            <a href="#" class="urunAzalt">
+                                <img src="assets/img/azalt.png" alt="">
+                            </a>
+                            <strong>0</strong>
+                            <a href="#" class="urunEkle">
+                                <img src="assets/img/plus.png" alt="">
+                            </a>
+                        </div>
+
+                        <button class="addToChartBtn"><img src="assets/img/sepetBeyaz.png" alt="sepet">Add to cart</button>
+                    </div>
+
                 </div> -->
+
             </div>
 
         </div>
+        <dialog class="alisverisOnay" close>
+            <p>Ürününüz başarıyla sepete eklendi</p>
+            <button>Alışverişe Devam Et</button>
+        </dialog>  
+        
+        
+
+        
     </div>
-
     
 
-
-    <script src="assets/js/main.js"></script>
-    
+    <script src="assets/js/urun.js"></script>
 </body>
 </html>
